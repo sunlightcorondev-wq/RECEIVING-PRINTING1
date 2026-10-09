@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-sunlight {
+    font-family: 'Great Vibes', 'Alex Brush', cursive;
+  }
+}
+
+/* Screen half-sheet dimensions */
+.half-bond-sheet {
+  width: 5.5in;
+  min-height: 8.5in;
+  max-height: 8.5in;
+  box-sizing: border-box;
+}
+
+@media screen {
+  .preview-wrapper {
+    background-color: #e5e7eb;
+    padding: 1.5rem 1rem;
+    overflow-x: auto;
+  }
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  @page {
+    size: 11in 8.5in landscape;
+    margin: 0.2in 0.2in;
+  }
+
+  html, body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Force hide all non-printable elements */
+  header, footer, nav, aside, .no-print, [class*="no-print"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Force show printable container */
+  .print-only {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-page-landscape {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    width: 10.6in !important;
+    height: 8.1in !important;
+    max-height: 8.1in !important;
+    margin: 0 auto !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    box-sizing: border-box !important;
+  }
+
+  .print-page-landscape:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .print-half-sheet {
+    width: 5.2in !important;
+    height: 8.1in !important;
+    max-height: 8.1in !important;
+    box-sizing: border-box !important;
+    border: 1.5px solid #000 !important;
+    padding: 0.12in !important;
+    background: #fff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+  }
+
+  .print-cut-line {
+    display: block !important;
+    width: 0px !important;
+    border-right: 1.5px dashed #555 !important;
+    margin: 0 0.08in !important;
+    height: 8.1in !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Single 5.5 x 8.5 print mode */
+  body.single-print-mode @page {
+    size: 5.5in 8.5in portrait;
+    margin: 0.2in;
+  }
+
+  body.single-print-mode .print-page-landscape {
+    display: block !important;
+    width: 5.1in !important;
+    height: 8.1in !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  body.single-print-mode .print-page-landscape:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  body.single-print-mode .print-half-sheet {
+    width: 5.1in !important;
+    height: 8.1in !important;
+  }
+
+  body.single-print-mode .print-cut-line,
+  body.single-print-mode .print-second-copy {
+    display: none !important;
+  }
+
+  input, select, textarea {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
+}
+
+

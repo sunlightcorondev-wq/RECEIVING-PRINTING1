@@ -1,0 +1,6 @@
+{
+  "name": "Sunlight Stock Receiving Creator",
+  "description": "Automated stock receiving copy generator with AI invoice parsing, manual editing, and PDF export functionality for Sunlight Hotel, Coron.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
